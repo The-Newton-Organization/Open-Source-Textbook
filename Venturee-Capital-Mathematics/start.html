@@ -1,0 +1,340 @@
+Absolutely. Here’s a **VC Analyst Math One-Pager** focused on the quantitative skills that actually show up in sourcing, diligence, financial modeling, and investment memos.
+
+# Venture Capital Analyst — Math One-Pager
+
+### 1. Percentages & Growth
+
+**Growth rate**
+
+$$
+g=\frac{X_t-X_0}{X_0}
+$$
+
+**CAGR**
+
+$$
+CAGR=\left(\frac{X_t}{X_0}\right)^{1/t}-1
+$$
+
+Example: Revenue grows from $2M → $8M in 3 years:
+
+$$
+CAGR=(8/2)^{1/3}-1=58.7\%
+$$
+
+**Rule of 72**
+
+$$
+\text{Years to double}\approx\frac{72}{g}
+$$
+
+At 24% growth → roughly 3 years to double.
+
+---
+
+### 2. Market Sizing
+
+**TAM**
+
+$$
+TAM = \text{Potential Customers}\times\text{Annual Revenue/Customer}
+$$
+
+**SAM**
+
+The portion of TAM the company can realistically serve.
+
+**SOM**
+
+The portion it could realistically capture.
+
+**Bottom-up example**
+
+$$
+1M\text{ customers}\times\$500/year=\$500M\ TAM
+$$
+
+Think in terms of:
+
+> **Customers × Price × Frequency**
+
+---
+
+### 3. Unit Economics
+
+The core equations:
+
+$$
+Gross\ Margin=\frac{Revenue-COGS}{Revenue}
+$$
+
+$$
+CAC=\frac{\text{Sales + Marketing Spend}}{\text{New Customers}}
+$$
+
+$$
+LTV\approx ARPU\times Gross\ Margin\times Customer\ Lifetime
+$$
+
+A simple subscription approximation:
+
+$$
+LTV\approx\frac{ARPU\times Gross\ Margin}{Monthly\ Churn}
+$$
+
+**LTV/CAC**
+
+$$
+\frac{LTV}{CAC}
+$$
+
+**CAC Payback**
+
+$$
+CAC\ Payback=\frac{CAC}{Monthly\ Gross\ Profit}
+$$
+
+---
+
+### 4. SaaS Metrics
+
+**ARR**
+
+$$
+ARR=MRR\times12
+$$
+
+**MRR Growth**
+
+$$
+\frac{MRR_t-MRR_{t-1}}{MRR_{t-1}}
+$$
+
+**Net Revenue Retention**
+
+$$
+NRR=
+\frac{Beginning\ Revenue
++Expansion-Churn-Contraction}{Beginning\ Revenue}
+$$
+
+**Burn Multiple**
+
+$$
+Burn\ Multiple=
+\frac{Net\ Burn}{Net\ New\ ARR}
+$$
+
+This measures how much cash is being consumed to create incremental recurring revenue.
+
+---
+
+### 5. Startup Runway
+
+$$
+Runway=\frac{Cash}{Monthly\ Net\ Burn}
+$$
+
+Example:
+
+$6M cash / $500K monthly burn:
+
+$$
+12\text{ months}
+$$
+
+If burn is increasing, use a **cash-flow forecast**, not this simple approximation.
+
+---
+
+### 6. Valuation
+
+**Post-money valuation**
+
+$$
+Post=\frac{Investment}{Ownership\%}
+$$
+
+Example:
+
+$5M invested for 20%:
+
+$$
+Post=\frac{\$5M}{0.20}=\$25M
+$$
+
+Then:
+
+$$
+Pre=Post-Investment
+$$
+
+$$
+Pre=\$20M
+$$
+
+---
+
+### 7. Dilution
+
+If a new investor receives 20% of the post-money company:
+
+Existing shareholders collectively retain:
+
+$$
+1-20\%=80\%
+$$
+
+If you own 10% beforehand:
+
+$$
+10\%\times80\%=8\%
+$$
+
+Your ownership becomes **8%**.
+
+---
+
+### 8. Venture Returns
+
+**MOIC**
+
+$$
+MOIC=\frac{Exit\ Value}{Investment}
+$$
+
+$10M → $100M:
+
+$$
+MOIC=10\times
+$$
+
+**IRR**
+
+For a single investment with no interim cash flows:
+
+$$
+IRR=\left(\frac{Exit}{Investment}\right)^{1/t}-1
+$$
+
+10× over 5 years:
+
+$$
+IRR=10^{1/5}-1\approx58.5\%
+$$
+
+---
+
+### 9. Ownership → Exit Proceeds
+
+Suppose a fund owns **8%** at exit and the company sells for **$500M**:
+
+$$
+\$500M\times8\%=\$40M
+$$
+
+But analysts must account for:
+
+* Dilution
+* Preferred stock
+* Liquidation preferences
+* Option pools
+* Convertible securities
+* Subsequent financing rounds
+
+---
+
+### 10. Expected Value
+
+VC is fundamentally a **probability-weighted returns problem**.
+
+$$
+EV=\sum_i P_i\times Payoff_i
+$$
+
+Example:
+
+| Outcome       | Probability | Fund Proceeds |
+| ------------- | ----------: | ------------: |
+| Failure       |         60% |            $0 |
+| Moderate exit |         25% |          $30M |
+| Huge exit     |         15% |         $200M |
+
+$$
+EV=(.60)(0)+(.25)(30)+(.15)(200)
+$$
+
+$$
+EV=\$37.5M
+$$
+
+The important insight:
+
+> **Venture portfolios are often driven by a small number of extreme outcomes.**
+
+---
+
+# The Math Hierarchy
+
+If you're preparing for a **VC Analyst interview**, I'd prioritize:
+
+**Tier 1 — Must know**
+
+* Percentages
+* Growth rates
+* CAGR
+* Margins
+* Revenue
+* ARR/MRR
+* CAC
+* LTV
+* Burn
+* Runway
+* Dilution
+* Pre/post-money valuation
+* MOIC
+* IRR
+
+**Tier 2 — Very useful**
+
+* Probability-weighted returns
+* Cap tables
+* Ownership modeling
+* Cohort analysis
+* Retention
+* NRR
+* Sensitivity analysis
+* Scenario analysis
+
+**Tier 3 — Advanced**
+
+* DCF
+* Public-company comps
+* Precedent transactions
+* Monte Carlo simulation
+* Options/warrants
+* Convertible notes/SAFEs
+* Liquidation waterfalls
+* Portfolio construction
+* Power-law distributions
+
+### The meta-skill
+
+The most important mathematical skill for a VC analyst isn't calculus.
+
+It's being able to look at a company and rapidly translate:
+
+$$
+\boxed{
+Customers
+\rightarrow Revenue
+\rightarrow Margins
+\rightarrow Cash Flow
+\rightarrow Valuation
+\rightarrow Ownership
+\rightarrow Exit
+\rightarrow Fund\ Return
+}
+$$
+
+That chain is the **core quantitative language of venture capital**.
