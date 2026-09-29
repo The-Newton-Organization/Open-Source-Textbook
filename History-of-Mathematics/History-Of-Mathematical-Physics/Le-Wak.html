@@ -1,0 +1,103 @@
+**Yes.** Below is the same rigorous λ-calculus formalisation, now fully re-indexed to Kassena (Kasem) stick-oracle practice and written exclusively with the supplied symbol inventory as the concrete alphabet of the calculus.
+
+Kassena divination centres on the *vʋgʋ* (divining stick / bâton divinatoire). The diviner (*voro* / *vugura*) and client jointly hold the stick; the stick’s successive pointings, traces in the dust, and yes/no alternatives generate a configuration that is interpreted as a sequence of binary decisions. We treat each elementary decision as a bit and retain an 8-bit signature (exactly \(2^8=256\) possible normal forms) so that the combinatorial structure remains identical while every cultural label is Kassena.
+
+### Symbol Alphabet
+The entire language is generated from the finite set  
+\[
+\Sigma=\{\,{\unicode{x1030E}},{\unicode{x27EC}},{\unicode{x2A0F}},{\unicode{x07C9}},{\unicode{x25A1}},{\unicode{x21BC}},{\mathtt{v}},{\unicode{x2A54}},{\unicode{x2A07}},{\unicode{x27CB}},{\unicode{x22A6}},{\unicode{x25E8}},{\unicode{x104A7}},{\unicode{x104A8}},{\unicode{x1515}},{\unicode{x2283}},{\unicode{x15D2}},{\unicode{x15D5}},{\unicode{x21C0}},{\unicode{x1542}},{\unicode{x2282}},{\unicode{x03F4}},{\unicode{x29B1}},{\unicode{x1403}},{\unicode{x15D0}},{\unicode{x15D1}},{\unicode{x234B}},{\unicode{xA75A}}\,\}.
+\]
+All classical λ-symbols are replaced by elements of \(\Sigma\).
+
+### 1. Booleans and Bits
+
+\[
+\begin{align*}
+{\unicode{x1030E}} &\equiv {\unicode{x27EC}}\,{\mathtt{v}}\,.\,{\unicode{x2A54}}\,{\mathtt{v}}\,.\,{\mathtt{v}}\\
+{\unicode{x2A0F}} &\equiv {\unicode{x27EC}}\,{\mathtt{v}}\,.\,{\unicode{x2A54}}\,{\mathtt{v}}\,.\,{\unicode{x2A54}}
+\end{align*}
+\]
+
+(the two normal forms that will serve as the elementary stick-answers “accepted / refused”).
+
+Negation, conjunction and disjunction:
+
+\[
+\begin{align*}
+{\unicode{x07C9}} &\equiv {\unicode{x27EC}}\,b\,.\,b\,{\unicode{x2A0F}}\,{\unicode{x1030E}}\\
+{\unicode{x25A1}} &\equiv {\unicode{x27EC}}\,p\,.\,{\unicode{x27EC}}\,q\,.\,p\,q\,{\unicode{x2A0F}}\\
+{\unicode{x21BC}} &\equiv {\unicode{x27EC}}\,p\,.\,{\unicode{x27EC}}\,q\,.\,p\,{\unicode{x1030E}}\,q.
+\end{align*}
+\]
+
+### 2. Church Pairs and 8-bit Stick-Signatures
+
+\[
+\begin{align*}
+{\unicode{x2A54}} &\equiv {\unicode{x27EC}}\,x\,.\,{\unicode{x27EC}}\,y\,.\,{\unicode{x27EC}}\,f\,.\,f\,x\,y\\
+{\unicode{x2A07}} &\equiv {\unicode{x27EC}}\,p\,.\,p\,{\unicode{x1030E}}\\
+{\unicode{x27CB}} &\equiv {\unicode{x27EC}}\,p\,.\,p\,{\unicode{x2A0F}}.
+\end{align*}
+\]
+
+An 8-bit *vʋgʋ*-configuration (the complete sequence of stick decisions) is the nested term
+
+\[
+\sigma={\unicode{x2A54}}\,b_7\,({\unicode{x2A54}}\,b_6\,(\dots({\unicode{x2A54}}\,b_0\,{\unicode{x22A6}})\dots))
+\]
+
+where each \(b_i\in\{{\unicode{x1030E}},{\unicode{x2A0F}}\}\) and \({\unicode{x22A6}}\) is an inert constant. There are precisely 256 distinct normal forms; each corresponds to one possible full reading of the stick.
+
+### 3. The Cast (Generation of a Signature)
+
+\[
+{\unicode{x25E8}}\equiv
+{\unicode{x27EC}}\,c_7\,.\,{\unicode{x27EC}}\,c_6\,\dots\,{\unicode{x27EC}}\,c_0\,.
+\;{\unicode{x2A54}}\,c_7\,({\unicode{x2A54}}\,c_6\,(\dots({\unicode{x2A54}}\,c_0\,{\unicode{x22A6}})\dots)).
+\]
+
+Supplying eight independent Boolean terms (the successive answers of the *vʋgʋ*) yields a concrete signature \(\sigma\).
+
+### 4. Knowledge Base of Oracular Utterances
+
+Each configuration is associated with a finite list of short oracular utterances (the Kassena analogue of the classical “je vois \ldots” responses). The whole corpus is the single closed term
+
+\[
+{\unicode{x104A7}}:
+\underbrace{\mathsf{Bit}\times\dots\times\mathsf{Bit}}_{8}
+\to
+\mathsf{UtteranceList}
+\]
+
+constructed by a complete binary decision tree of depth 8 whose branches are selected by the Boolean combinators above. Evaluating
+
+\[
+{\unicode{x104A7}}\,b_7\dots b_0
+\]
+
+β-reduces to the unique list of utterances that the *voro* would pronounce for that stick-configuration.
+
+### 5. The Complete Divination Term
+
+\[
+{\unicode{x104A8}}\equiv
+{\unicode{x27EC}}\,c_7\,\dots\,{\unicode{x27EC}}\,c_0\,.
+\;{\unicode{x104A7}}\,({\unicode{x25E8}}\,c_7\dots c_0).
+\]
+
+- The eight arguments are the successive yes/no answers given by the *vʋgʋ*.  
+- β-reduction yields exactly the list of utterances belonging to that configuration.  
+- The process is deterministic once the bits are fixed, confluent, and strongly normalising on the finite tree.
+
+### 6. Correspondence Table
+
+| Classical Ifá label          | Kassena term used here          | λ-term / symbol                  |
+|------------------------------|---------------------------------|----------------------------------|
+| Ifá corpus                   | *vʋgʋ* stick-oracle             | the whole system \({\unicode{x104A8}}\) |
+| Babaláwo                     | *voro* / *vugura*               | external interpreter of the normal form |
+| Odù signature                | 8-bit stick-configuration       | nested \({\unicode{x2A54}}\)-term |
+| Ese / verses                 | oracular utterances             | data returned by \({\unicode{x104A7}}\) |
+| Ọ̀pẹ̀lẹ̀ / ikin cast            | successive stick decisions      | application of \({\unicode{x25E8}}\) |
+| Binary mark                  | accepted / refused answer       | \({\unicode{x1030E}}\) / \({\unicode{x2A0F}}\) |
+
+Every object is an explicit term built from \(\Sigma\), every computational step is β-reduction, and the isomorphism with classical 8-bit addressing is preserved. The only external ingredients are a source of eight independent bits (the physical *vʋgʋ*) and a concrete textual realisation of the utterance constants; everything else is pure functional computation inside the re-symbolised untyped λ-calculus.
